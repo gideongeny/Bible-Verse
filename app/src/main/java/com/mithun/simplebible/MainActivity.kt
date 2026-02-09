@@ -7,6 +7,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mithun.simplebible.utilities.Prefs
 import com.mithun.simplebible.utilities.gone
@@ -18,6 +23,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private var mInterstitialAd: InterstitialAd? = null
 
     @Inject
     lateinit var prefs: Prefs
@@ -33,6 +39,37 @@ class MainActivity : AppCompatActivity() {
             // empty. Prevents recreating fragment when same menu item is clicked multiple times
         }
         initUI(navView)
+        loadAds()
+    }
+
+    private fun loadAds() {
+        // Load Banner Ad
+        val adView: AdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        // Load Interstitial Ad
+        InterstitialAd.load(
+            this,
+            "ca-app-pub-1281448884303417/5428049782",
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    mInterstitialAd = null
+                }
+
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    mInterstitialAd = interstitialAd
+                }
+            }
+        )
+    }
+
+    fun showInterstitial() {
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(this)
+            loadAds() // Reload for next time
+        }
     }
 
     private fun initUI(navView: BottomNavigationView) {
@@ -51,6 +88,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     navView.visible
+                    // Optionally show interstitial on some destination changes
+                    if (destination.id == R.id.navigation_chapter_verses || destination.id == R.id.navigation_books) {
+                        showInterstitial()
+                    }
                 }
             }
         }

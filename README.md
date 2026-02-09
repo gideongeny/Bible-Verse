@@ -1,7 +1,7 @@
 # 📖 Simple Bible - Read, Reflect, & Share
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1130895/116777602-ba87bd00-aa22-11eb-8852-14079a123f7b.png" width="160" alt="App Logo" />
+  <img src="icon/create-for-me-a-world-class-icon-for-my-bible-andr.png" width="160" alt="App Logo" />
 </p>
 
 <p align="center">
