@@ -58,4 +58,6 @@
     <string name="preference_image_share_title">Image Share</string>
     <string name="preference_image_share_summary">Experimental Image share feature</string>
 
+    <string name="preference_privacy_policy_key">preference_privacy_policy</string>
+    <string name="preference_privacy_policy_title">Privacy Policy</string>
 </resources>

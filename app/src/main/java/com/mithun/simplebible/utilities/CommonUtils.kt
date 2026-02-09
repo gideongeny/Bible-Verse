@@ -63,4 +63,15 @@ object CommonUtils {
     fun getSpToPx(context: Context, sp: Int): Float {
         return sp * context.resources.displayMetrics.scaledDensity
     }
+
+    /**
+     * Open the passed URL in the default browser
+     *
+     * @param context activity context
+     * @param url url to be opened
+     */
+    fun openUrl(context: Context, url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        context.startActivity(intent)
+    }
 }

@@ -8,6 +8,12 @@
             app:title="@string/preference_theme_title" />
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="Privacy">
+        <Preference
+            app:key="@string/preference_privacy_policy_key"
+            app:title="@string/preference_privacy_policy_title" />
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="Beta">
         <Preference
             app:key="@string/preference_image_share_key"

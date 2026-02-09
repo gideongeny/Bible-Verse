@@ -50,5 +50,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
             // do nothing
             true
         }
+
+        val privacyPolicyPreference: Preference? = findPreference(getString(R.string.preference_privacy_policy_key))
+        privacyPolicyPreference?.setOnPreferenceClickListener {
+            CommonUtils.openUrl(requireContext(), "https://gideongeny.github.io/Bible-Verse/privacy-policy.html")
+            true
+        }
     }
 }
