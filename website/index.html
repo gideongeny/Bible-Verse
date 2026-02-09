@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bible - Read, Reflect, & Share</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F1C2E',
+                        primaryLight: '#1B2E46',
+                        accent: '#E4C06A',
+                        accentLight: '#F2DF99',
+                        accentDark: '#A68B4D',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotateX(5deg) rotateY(-5deg)' },
+                            '50%': { transform: 'translateY(-20px) rotateX(10deg) rotateY(5deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0F1C2E;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #E4C06A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+
+        .mask-fade {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+
+<body class="selection:bg-accent/30">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="public/app-icon.png" alt="Logo"
+                    class="w-10 h-10 rounded-lg shadow-lg border border-accent/20">
+                <span class="text-xl font-bold tracking-tight text-gradient">Simple Bible</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#features" class="hover:text-accent transition-colors">Features</a>
+                <a href="#preview" class="hover:text-accent transition-colors">Preview</a>
+                <a href="https://github.com/gideongeny/Bible-Verse" target="_blank"
+                    class="hover:text-accent transition-colors">GitHub</a>
+            </div>
+            <a href="#"
+                class="bg-accent text-primary px-5 py-2 rounded-full text-sm font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-accent/20">
+                Download
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
+        <!-- Background glow -->
+        <div
+            class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primaryLight/20 rounded-full blur-[100px]">
+        </div>
+
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <div id="hero-text" class="flex-1 text-center lg:text-left space-y-8">
+                <div
+                    class="inline-block px-4 py-1.5 rounded-full glass text-accent text-xs font-bold tracking-widest uppercase mb-4">
+                    World Class Experience
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-gradient">
+                    Read, Reflect, & <br> <span class="text-white">Share Truth</span>
+                </h1>
+                <p class="text-lg text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Simple Bible is a high-performance Android application designed for a distraction-free scripture
+                    reading experience. Beyond reading, it empowers your spiritual journey.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <button
+                        class="bg-accent text-primary px-8 py-4 rounded-2xl font-bold shadow-2xl shadow-accent/20 hover:-translate-y-1 active:translate-y-0 transition-transform">
+                        Get Started Free
+                    </button>
+                    <button
+                        class="glass px-8 py-4 rounded-2xl font-bold border border-white/10 hover:bg-white/5 transition-colors">
+                        View on GitHub
+                    </button>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start gap-4 pt-4">
+                    <div class="flex -space-x-3">
+                        <div
+                            class="w-10 h-10 rounded-full border-2 border-primary bg-primaryLight flex items-center justify-center text-[10px] font-bold">
+                            U1</div>
+                        <div
+                            class="w-10 h-10 rounded-full border-2 border-primary bg-primaryLight flex items-center justify-center text-[10px] font-bold">
+                            U2</div>
+                        <div
+                            class="w-10 h-10 rounded-full border-2 border-primary bg-primaryLight flex items-center justify-center text-[10px] font-bold">
+                            U3</div>
+                    </div>
+                    <p class="text-sm text-white/40"><span class="text-white font-semibold">1,000+</span> bible lovers
+                        already joined</p>
+                </div>
+            </div>
+
+            <div id="hero-image" class="flex-1 relative perspective-1000">
+                <div class="relative z-10 animate-float preserve-3d">
+                    <div
+                        class="w-[280px] md:w-[320px] mx-auto rounded-[3rem] p-3 glass border-white/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+                        <div class="overflow-hidden rounded-[2.5rem] bg-[#08101C] aspect-[9/19]">
+                            <img src="https://user-images.githubusercontent.com/1130895/116777602-ba87bd00-aa22-11eb-8852-14079a123f7b.png"
+                                alt="App Screenshot" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-accent/20 rounded-full animate-ping opacity-20"
+                    style="animation-duration: 4s;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center space-y-4 mb-20 reveal">
+                <h2 class="text-4xl font-bold">Premium Features</h2>
+                <p class="text-white/60 max-w-2xl mx-auto">Everything you need for a deep and meaningful connection with
+                    the Word.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform group reveal">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Seamless Reading</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">Access KJV, ASV, and more with a focus on
+                        readability and speed.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform group reveal"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Personal Insights</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">Capture your spiritual journey with detailed,
+                        organized notes.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform group reveal"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Image Sharing</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">Create and share beautiful scripture images with
+                        custom backgrounds.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:-translate-y-2 transition-transform group reveal"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-primary transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Dynamic Themes</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">Optimized for Light and Dark modes with automatic
+                        switching.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section id="preview" class="py-24 bg-primaryLight/10 relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="space-y-4 mb-16 reveal">
+                <h2 class="text-4xl font-bold">Beautifully Designed</h2>
+                <p class="text-white/60 max-w-2xl mx-auto">A modern interface that honors the sacred text with clarity
+                    and elegance.</p>
+            </div>
+
+            <div class="flex overflow-x-auto gap-8 pb-12 snap-x mask-fade no-scrollbar reveal">
+                <div class="flex-none w-[260px] snap-center">
+                    <div class="glass p-3 rounded-[2.5rem] shadow-2xl mb-4 group overflow-hidden">
+                        <div class="rounded-[2rem] overflow-hidden aspect-[9/19]">
+                            <img src="https://user-images.githubusercontent.com/1130895/116777602-ba87bd00-aa22-11eb-8852-14079a123f7b.png"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-white/40">Home Screen</p>
+                </div>
+                <div class="flex-none w-[260px] snap-center">
+                    <div class="glass p-3 rounded-[2.5rem] shadow-2xl mb-4 group overflow-hidden">
+                        <div class="rounded-[2rem] overflow-hidden aspect-[9/19]">
+                            <img src="https://user-images.githubusercontent.com/1130895/116777778-15b9af80-auto23-11eb-91e3-6328d3f324aa.png"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-white/40">Dark Mode</p>
+                </div>
+                <!-- ... other images ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="glass rounded-[4rem] p-12 md:p-20 text-center relative overflow-hidden reveal">
+                <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[80px]"></div>
+                <div class="z-10 relative space-y-8">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gradient">Start Your Journey Today</h2>
+                    <p class="text-lg text-white/60 max-w-xl mx-auto">Download the Simple Bible app now and carry the
+                        living Word in your pocket with grace and style.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button
+                            class="bg-white text-primary px-8 py-4 rounded-2xl font-bold hover:bg-white/90 transition-colors">Google
+                            Play</button>
+                        <button
+                            class="bg-accent text-primary px-8 py-4 rounded-2xl font-bold hover:bg-accent/90 transition-colors">Direct
+                            APK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="public/app-icon.png" alt="Logo" class="w-8 h-8">
+                <span class="font-bold tracking-tight text-gradient">Simple Bible</span>
+            </div>
+            <p class="text-sm text-white/30 text-center">© 2026 Bible Verse App. All rights reserved. Made with ❤️ for
+                the community.</p>
+            <div class="flex gap-6 text-white/30 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass', 'py-4', 'shadow-xl');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('glass', 'py-4', 'shadow-xl');
+                nav.classList.add('py-6');
+            }
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from("#hero-text > *", { duration: 1, y: 30, opacity: 0, stagger: 0.1, ease: "power3.out" });
+        gsap.from("#hero-image", { duration: 1.5, scale: 0.8, opacity: 0, ease: "power3.out" });
+        gsap.utils.toArray('.reveal').forEach((elem) => {
+            gsap.to(elem, {
+                scrollTrigger: { trigger: elem, start: "top 85%", toggleActions: "play none none none" },
+                opacity: 1, y: 0, duration: 1, ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+
+</html>

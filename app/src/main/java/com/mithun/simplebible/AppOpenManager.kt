@@ -12,7 +12,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
 import java.util.*
 
-class AppOpenManager(private val myApplication: BibleApplication) : DefaultLifecycleObserver, Application.ActivityLifecycleCallbacks {
+class AppOpenManager(private val myApplication: Application) : DefaultLifecycleObserver, Application.ActivityLifecycleCallbacks {
 
     private var appOpenAd: AppOpenAd? = null
     private var loadCallback: AppOpenAd.AppOpenAdLoadCallback? = null

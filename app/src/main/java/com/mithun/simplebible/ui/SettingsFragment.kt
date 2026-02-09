@@ -8,6 +8,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.mithun.simplebible.R
+import com.mithun.simplebible.utilities.CommonUtils
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
