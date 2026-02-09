@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primaryColor">#0F1C2E</color>
+    <color name="primaryLightColor">#1B2E46</color>
+    <color name="primaryDarkColor">#08101C</color>
+    <color name="primaryColorLightVariant">#2C3E50</color>
+    <color name="secondaryColor">#E4C06A</color>
+    <color name="secondaryLightColor">#F2DF99</color>
+    <color name="secondaryDarkColor">#A68B4D</color>
+    <color name="primaryTextColor">#FFFFFF</color>
+    <color name="secondaryTextColor">#E4C06A</color>
+    <color name="colorAccent">#E4C06A</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red_200">#cf6679</color>
+    <color name="red_600">#b00020</color>
+
+    <color name="windowBackgroundLM">#F8F9FA</color>
+    <color name="windowBackgroundDM">#0F1C2E</color>
+
+    <!-- Icon colors -->
+    <color name="goodState">#4CAF50</color>
+    <color name="selectedState">@color/goodState</color>
+
+    <!-- Text colors -->
+    <color name="primaryText">@color/primaryColor</color>
+    <color name="redText">#EF5350</color>
+
+</resources>

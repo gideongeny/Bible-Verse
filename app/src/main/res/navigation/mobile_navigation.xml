@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_chapter_verses">
+
+    <fragment
+        android:id="@+id/navigation_chapter_verses"
+        android:name="com.mithun.simplebible.ui.book.VersesFragment"
+        android:label="Verses"
+        tools:layout="@layout/fragment_chapter_verses">
+        <argument
+            android:name="chapterId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="chapterFullName"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_add_edit_note"
+            app:destination="@id/navigation_add_edit_note">
+            <argument
+                android:name="noteId"
+                android:defaultValue="0L"
+                app:argType="long" />
+            <argument
+                android:name="bibleId"
+                app:argType="string"
+                app:nullable="true" />
+            <argument
+                android:name="chapterFullName"
+                app:argType="string" />
+            <argument
+                android:name="chapterId"
+                app:argType="string" />
+            <argument
+                android:name="verses"
+                app:argType="integer[]" />
+            <argument
+                android:name="comment"
+                android:defaultValue="@null"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+        <action
+            android:id="@+id/action_navigation_chapter_verses_to_navigation_books"
+            app:destination="@id/navigation_book_select">
+            <argument
+                android:name="bookId"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_image_select"
+            app:destination="@id/navigation_image_select">
+            <argument
+                android:name="verse"
+                app:argType="string" />
+            <argument
+                android:name="verseId"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_lookup_chapter"
+            app:destination="@id/navigation_chapter_verses"
+            app:launchSingleTop="true">
+            <argument
+                android:name="chapterId"
+                android:defaultValue="@null"
+                app:argType="string"
+                app:nullable="true" />
+            <argument
+                android:name="chapterFullName"
+                android:defaultValue="@null"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_book_select"
+        android:name="com.mithun.simplebible.ui.book.SelectionFragment"
+        android:label="@string/bookSelectTitle"
+        tools:layout="@layout/fragment_selection" />
+
+    <fragment
+        android:id="@+id/navigation_books"
+        android:name="com.mithun.simplebible.ui.book.BooksFragment"
+        android:label="@string/readTitle"
+        tools:layout="@layout/fragment_books">
+        <argument
+            android:name="bookId"
+            android:defaultValue="GEN"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_chapters"
+        android:name="com.mithun.simplebible.ui.book.ChapterSelectionFragment"
+        android:label="Chapter"
+        tools:layout="@layout/fragment_chapter_select">
+        <action
+            android:id="@+id/action_select_verse"
+            app:destination="@+id/navigation_chapter_verses">
+            <argument
+                android:name="chapterId"
+                app:argType="string" />
+            <argument
+                android:name="chapterFullName"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_image_select"
+        android:name="com.mithun.simplebible.ui.share.ImageSelectGalleryFragment"
+        android:label="@string/backgroundSelectTitle"
+        tools:layout="@layout/fragment_image_select_gallery">
+        <argument
+            android:name="verse"
+            app:argType="string" />
+        <argument
+            android:name="verseId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_image_edit"
+            app:destination="@id/navigation_image_edit">
+            <argument
+                android:name="verse"
+                app:argType="string" />
+            <argument
+                android:name="verseId"
+                app:argType="string" />
+            <argument
+                android:name="imageResourceId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_image_edit"
+        android:name="com.mithun.simplebible.ui.share.ImageEditFragment"
+        android:label="@string/backgroundEditTitle"
+        tools:layout="@layout/fragment_image_edit">
+        <argument
+            android:name="verse"
+            app:argType="string" />
+        <argument
+            android:name="verseId"
+            app:argType="string" />
+        <argument
+            android:name="imageResourceId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_navigation_image_edit_to_navigation_image_share"
+            app:destination="@id/navigation_image_share"
+            app:popUpTo="@id/navigation_chapter_verses">
+            <argument
+                android:name="fileUri"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_image_share"
+        android:name="com.mithun.simplebible.ui.share.ImageShareFragment"
+        android:label="@string/imageVerseShareTitle"
+        tools:layout="@layout/fragment_image_share">
+        <argument
+            android:name="fileUri"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notes"
+        android:name="com.mithun.simplebible.ui.notes.NotesFragment"
+        android:label="@string/notesTitle"
+        tools:layout="@layout/fragment_notes">
+        <action
+            android:id="@+id/action_add_edit_note"
+            app:destination="@id/navigation_add_edit_note">
+            <argument
+                android:name="noteId"
+                android:defaultValue="0L"
+                app:argType="long" />
+            <argument
+                android:name="bibleId"
+                app:argType="string"
+                app:nullable="true" />
+            <argument
+                android:name="chapterFullName"
+                app:argType="string" />
+            <argument
+                android:name="chapterId"
+                app:argType="string" />
+            <argument
+                android:name="verses"
+                app:argType="integer[]" />
+            <argument
+                android:name="comment"
+                android:defaultValue="@null"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_edit_note"
+        android:name="com.mithun.simplebible.ui.notes.AddEditNotesFragment"
+        android:label="@string/noteTitle"
+        tools:layout="@layout/fragment_add_edit_note">
+        <argument
+            android:name="noteId"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <argument
+            android:name="bibleId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="chapterFullName"
+            app:argType="string" />
+        <argument
+            android:name="chapterId"
+            app:argType="string" />
+        <argument
+            android:name="verses"
+            app:argType="integer[]" />
+        <argument
+            android:name="comment"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_bookmarks"
+        android:name="com.mithun.simplebible.ui.bookmark.BookmarkFragment"
+        android:label="@string/bookmarksTitle"
+        tools:layout="@layout/fragment_bookmarks" />
+
+    <fragment
+        android:id="@+id/navigation_settings_fragment"
+        android:name="com.mithun.simplebible.ui.SettingsFragment"
+        android:label="Settings" />
+
+    <fragment
+        android:id="@+id/navigation_filter"
+        android:name="com.mithun.simplebible.ui.filter.FilterFragment"
+        android:label="@string/filterTitle"
+        tools:layout="@layout/fragment_filter" />
+
+    <action
+        android:id="@+id/action_global_navigation_filter"
+        app:destination="@id/navigation_filter" />
+
+</navigation>

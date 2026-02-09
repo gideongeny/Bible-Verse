@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Override primary text for dark mode to ensure readability on navy background -->
+    <color name="primaryText">#FFFFFF</color>
+    <color name="primaryColorLightVariant">#2C3E50</color>
+    <color name="windowBackgroundDM">#08101C</color>
+</resources>

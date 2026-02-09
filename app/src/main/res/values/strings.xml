@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Bible Verse</string>
+    <string name="readTitle">Read</string>
+    <string name="notesTitle">Notes</string>
+    <string name="noteTitle">Note</string>
+    <string name="bookmarksTitle">Bookmarks</string>
+    <string name="settingsTitle">Settings</string>
+    <string name="filterTitle">Versions</string>
+    <string name="backgroundSelectTitle">Select background</string>
+    <string name="backgroundEditTitle">Edit image</string>
+    <string name="imageVerseShareTitle">Share verse</string>
+    <string name="bookSelectTitle">Select</string>
+
+    <!-- Menu items -->
+    <string name="menuItemSave">Save</string>
+    <string name="menuItemVersion">Version</string>
+    <string name="menuItemEdit">Edit</string>
+    <string name="menuItemShare">Share</string>
+    <string name="menuItemCopy">Copy</string>
+    <string name="menuItemDelete">Delete</string>
+
+
+    <!-- Error strings -->
+    <string name="errorGenericString">Something went wrong. please try again later.</string>
+
+    <!-- Verses screen -->
+    <!-- content descriptions -->
+    <string name="fabVersesMoreActionContentDescription">More actions</string>
+    <string name="contentDescriptionShareNote">Share note</string>
+
+
+    <!-- More Actions -->
+    <string name="actionSheetShareLabel">Share verse</string>
+    <string name="actionSheetCopyLabel">Copy</string>
+    <string name="actionSheetNoteLabel">Note</string>
+    <string name="actionSheetBookmarkLabel">Bookmark</string>
+    <string name="actionSheetImageLabel">Image</string>
+
+
+    <!-- Menu Action Strings -->
+    <string name="moreOptionsNoteText">Note</string>
+    <string name="contentDescriptionSelectBook">select book</string>
+
+    <!-- View Pager page titles -->
+    <string name="title_tab_books">Books</string>
+    <string name="title_tab_chapters">Chapters</string>
+    <string name="title_tab_verses">Verses</string>
+
+
+    <!-- Preference Titles -->
+    <string name="preference_title_theme">Theme</string>
+
+    <!-- Theme Preferences -->
+    <string name="preference_theme_key">preference_theme</string>
+    <string name="preference_theme_title">Night mode</string>
+
+    <string name="preference_image_share_key">imageShare</string>
+    <string name="preference_image_share_title">Image Share</string>
+    <string name="preference_image_share_summary">Experimental Image share feature</string>
+
+</resources>
