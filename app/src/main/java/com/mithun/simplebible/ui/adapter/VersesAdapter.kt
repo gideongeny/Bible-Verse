@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mithun.simplebible.ui.custom.VerseTextView
 import com.mithun.simplebible.ui.model.Verse
+import com.mithun.simplebible.utilities.Prefs
 
 /**
  * Adapter to display all the Bible verses for a selected chapter

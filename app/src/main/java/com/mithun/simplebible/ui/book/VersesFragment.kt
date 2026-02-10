@@ -26,6 +26,7 @@ import com.mithun.simplebible.ui.adapter.VersesAdapter
 import com.mithun.simplebible.ui.adapter.VersesFooterAdapter
 import com.mithun.simplebible.ui.dialog.Action
 import com.mithun.simplebible.ui.dialog.ActionsBottomSheet
+import com.mithun.simplebible.ui.dialog.ReaderSettingsDialog
 import com.mithun.simplebible.ui.model.Verse
 import com.mithun.simplebible.utilities.CommonUtils.copyToClipboard
 import com.mithun.simplebible.utilities.CommonUtils.showTextShareIntent
