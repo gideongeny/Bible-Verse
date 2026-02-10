@@ -73,10 +73,34 @@ class Prefs @Inject constructor(private val context: Context) {
         get() = get(context.getString(R.string.preference_theme_key), false)
         set(value) = set(context.getString(R.string.preference_theme_key), value)
 
+    /**
+     * Reader font size (sp)
+     */
+    var readerFontSize: Float
+        get() = get(PREF_READER_FONT_SIZE, 16f)
+        set(value) = set(PREF_READER_FONT_SIZE, value)
+
+    /**
+     * Reader font family
+     */
+    var readerFontFamily: String
+        get() = get(PREF_READER_FONT_FAMILY, "sans-serif")
+        set(value) = set(PREF_READER_FONT_FAMILY, value)
+
+    /**
+     * Reader line spacing (multiplier)
+     */
+    var readerLineSpacing: Float
+        get() = get(PREF_READER_LINE_SPACING, 1.2f)
+        set(value) = set(PREF_READER_LINE_SPACING, value)
+
     companion object {
         private const val PREF_SELECTED_BIBLE_VERSION_ID = "PrefSelectedBibleVersionId"
         private const val PREF_SELECTED_BIBLE_VERSION_NAME = "PrefSelectedBibleVersionName"
         private const val PREF_LAST_READ_CHAPTER_ID = "PrefLastReadChapterId"
+        private const val PREF_READER_FONT_SIZE = "PrefReaderFontSize"
+        private const val PREF_READER_FONT_FAMILY = "PrefReaderFontFamily"
+        private const val PREF_READER_LINE_SPACING = "PrefReaderLineSpacing"
         private const val kLastReadChapterDefaultId = "JHN.3"
     }
 }

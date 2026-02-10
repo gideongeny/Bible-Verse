@@ -67,7 +67,7 @@ class VersesFragment : BaseCollapsibleFragment(), ActionsBottomSheet.ActionPicke
     private val binding get() = _binding!!
 
     private val versesAdapter by lazy {
-        VersesAdapter(object : VersesAdapter.ClickListener {
+        VersesAdapter(prefs, object : VersesAdapter.ClickListener {
             override fun onSelect() {
                 binding.fabMore.show()
             }
@@ -146,6 +146,11 @@ class VersesFragment : BaseCollapsibleFragment(), ActionsBottomSheet.ActionPicke
         when (item.itemId) {
             R.id.action_version -> {
                 findNavController().navigate(R.id.action_global_navigation_filter)
+            }
+            R.id.action_font_settings -> {
+                ReaderSettingsDialog.newInstance {
+                    versesAdapter.notifyDataSetChanged()
+                }.show(childFragmentManager, "ReaderSettings")
             }
         }
         return super.onOptionsItemSelected(item)

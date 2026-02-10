@@ -12,7 +12,7 @@ import com.mithun.simplebible.ui.model.Verse
  * Adapter to display all the Bible verses for a selected chapter
  * @param onVerseSelect verse selection listener
  */
-class VersesAdapter(private val onVerseSelect: ClickListener) :
+class VersesAdapter(private val prefs: Prefs, private val onVerseSelect: ClickListener) :
     ListAdapter<Verse, VersesAdapter.ViewHolder>(VersesDiffUtil()) {
 
     interface ClickListener {
@@ -25,6 +25,8 @@ class VersesAdapter(private val onVerseSelect: ClickListener) :
 
     inner class ViewHolder(private val view: VerseTextView) : RecyclerView.ViewHolder(view) {
         fun bind(item: Verse) {
+            view.textSize = prefs.readerFontSize
+            view.setLineSpacing(0f, prefs.readerLineSpacing)
             view.setVerse(item.number, item.text, item.isBookmarked, item.hasNotes)
 
             if (item.number in listOfSelectedVerses) {

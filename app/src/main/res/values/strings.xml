@@ -60,4 +60,11 @@
 
     <string name="preference_privacy_policy_key">preference_privacy_policy</string>
     <string name="preference_privacy_policy_title">Privacy Policy</string>
+
+    <!-- Reader Settings -->
+    <string name="menuItemFontSettings">Font Settings</string>
+    <string name="readerSettingsTitle">Reader Settings</string>
+    <string name="readerSettingsFontSize">Font Size</string>
+    <string name="readerSettingsLineSpacing">Line Spacing</string>
+    <string name="readerSettingsFontFamily">Font Family</string>
 </resources>

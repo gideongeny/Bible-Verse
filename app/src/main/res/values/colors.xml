@@ -20,6 +20,22 @@
     <color name="windowBackgroundLM">#F8F9FA</color>
     <color name="windowBackgroundDM">#0F1C2E</color>
 
+    <!-- Material 3 Color Roles -->
+    <color name="m3_primary">#0F1C2E</color>
+    <color name="m3_on_primary">#FFFFFF</color>
+    <color name="m3_primary_container">#1B2E46</color>
+    <color name="m3_on_primary_container">#FFFFFF</color>
+    <color name="m3_secondary">#E4C06A</color>
+    <color name="m3_on_secondary">#0F1C2E</color>
+    <color name="m3_secondary_container">#F2DF99</color>
+    <color name="m3_on_secondary_container">#0F1C2E</color>
+    <color name="m3_surface">#F8F9FA</color>
+    <color name="m3_on_surface">#0F1C2E</color>
+    <color name="m3_surface_variant">#E1E2E1</color>
+    <color name="m3_on_surface_variant">#444746</color>
+    <color name="m3_error">#B3261E</color>
+    <color name="m3_on_error">#FFFFFF</color>
+
     <!-- Icon colors -->
     <color name="goodState">#4CAF50</color>
     <color name="selectedState">@color/goodState</color>

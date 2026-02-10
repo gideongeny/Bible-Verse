@@ -6,4 +6,9 @@
         android:id="@+id/action_version"
         app:showAsAction="always"
         android:title="@string/menuItemVersion"/>
+    <item
+        android:id="@+id/action_font_settings"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_edit"
+        android:title="@string/menuItemFontSettings"/>
 </menu>
